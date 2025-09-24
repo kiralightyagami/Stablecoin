@@ -1,4 +1,11 @@
 use anchor_lang::prelude::*;
+use state::*;
+mod state;
+use constants::*;
+mod constants;
+use instructions::*;
+mod instructions;
+
 
 declare_id!("");
 
@@ -6,11 +13,9 @@ declare_id!("");
 pub mod inrs {
     use super::*;
 
-    pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
-        msg!("Greetings from: {:?}", ctx.program_id);
-        Ok(())
+    pub fn init_config(ctx: Context<InitConfig>) -> Result<()> {
+        init_config(ctx)
     }
 }
 
-#[derive(Accounts)]
-pub struct Initialize {}
+
