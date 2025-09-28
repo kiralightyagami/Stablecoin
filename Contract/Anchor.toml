@@ -6,7 +6,7 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
-inrs = "3v3LMm9XD3eYBsehQAfkmewZRbJ7pCZukqFg7nVfE6Rn"
+Stablecoin = "3v3LMm9XD3eYBsehQAfkmewZRbJ7pCZukqFg7nVfE6Rn"
 
 [registry]
 url = "https://api.apr.dev"

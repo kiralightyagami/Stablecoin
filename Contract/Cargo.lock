@@ -3,6 +3,15 @@
 version = 4
 
 [[package]]
+name = "Stablecoin"
+version = "0.1.0"
+dependencies = [
+ "anchor-lang",
+ "anchor-spl",
+ "pyth-solana-receiver-sdk",
+]
+
+[[package]]
 name = "aead"
 version = "0.5.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -787,15 +796,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "879f10e63c20629ecabbb64a8010319738c66a5cd0c29b02d63d272b03751d01"
 dependencies = [
  "generic-array",
-]
-
-[[package]]
-name = "inrs"
-version = "0.1.0"
-dependencies = [
- "anchor-lang",
- "anchor-spl",
- "pyth-solana-receiver-sdk",
 ]
 
 [[package]]

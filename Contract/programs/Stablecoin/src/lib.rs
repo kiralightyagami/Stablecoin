@@ -9,22 +9,27 @@ pub use error::*;
 mod error;
 
 
-declare_id!("");
+
+declare_id!("3v3LMm9XD3eYBsehQAfkmewZRbJ7pCZukqFg7nVfE6Rn");
 
 #[program]
 pub mod Stablecoin {
     use super::*;
 
     pub fn init_config(ctx: Context<InitConfig>) -> Result<()> {
-        init_config(ctx)
+        instructions::init_config(ctx)
     }
         
     pub fn update_config(ctx: Context<UpdateConfig>, min_health_factor: u64) -> Result<()> {
-        update_config(ctx, min_health_factor)
+        instructions::update_config(ctx, min_health_factor)
     }
 
     pub fn deposit_collateral_and_mint_tokens(ctx: Context<DepositCollateralAndMintTokens>, amount_collateral: u64, amount_to_mint: u64) -> Result<()> {
-        deposit_collateral_and_mint_tokens(ctx, amount_collateral, amount_to_mint)
+        instructions::deposit_collateral_and_mint_tokens(ctx, amount_collateral, amount_to_mint)
+    }
+
+    pub fn redeem_collateral_and_burn_tokens(ctx: Context<RedeemCollateralAndBurnTokens>, amount_collateral: u64, amount_to_burn: u64) -> Result<()> {
+        instructions::redeem_collateral_and_burn_tokens(ctx, amount_collateral, amount_to_burn)
     }
 }
 

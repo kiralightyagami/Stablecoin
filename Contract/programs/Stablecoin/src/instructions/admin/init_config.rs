@@ -1,22 +1,7 @@
 use anchor_lang::prelude::*;
 use crate::{Config, CONFIG_SEED, MINT_SEED, MINT_DECIMALS, LIQUIDATION_THRESHOLD, LIQUIDATION_BONUS, MIN_HEALTH_FACTOR};
-use anchor_spl::{token::{Mint, Token}, token_2022::Token2022, token_interface::TokenInterface};
+use anchor_spl::{token_2022::Token2022, token_interface::Mint};
 
-
-
-pub fn init_config(ctx: Context<InitConfig>) -> Result<()> {
-    *ctx.accounts.config_account= Config {
-        authority: ctx.accounts.authority.key(),
-        mint_account: ctx.accounts.mint_account.key(),
-        liquidation_threshold: LIQUIDATION_THRESHOLD,
-        liquidation_bonus: LIQUIDATION_BONUS,
-        min_health_factor: MIN_HEALTH_FACTOR,
-        bump: ctx.bumps.config_account,
-        bump_mint_account: ctx.bumps.mint_account,
-    };
-    
-    Ok(())
-}
 
 #[derive(Accounts)]
 pub struct InitConfig<'info> {
@@ -46,4 +31,18 @@ pub struct InitConfig<'info> {
     pub mint_account: InterfaceAccount<'info, Mint>,
     pub token_program: Program<'info, Token2022>,
     pub system_program: Program<'info, System>,
+}
+
+pub fn init_config(ctx: Context<InitConfig>) -> Result<()> {
+    *ctx.accounts.config_account= Config {
+        authority: ctx.accounts.authority.key(),
+        mint_account: ctx.accounts.mint_account.key(),
+        liquidation_threshold: LIQUIDATION_THRESHOLD,
+        liquidation_bonus: LIQUIDATION_BONUS,
+        min_health_factor: MIN_HEALTH_FACTOR,
+        bump: ctx.bumps.config_account,
+        bump_mint_account: ctx.bumps.mint_account,
+    };
+    
+    Ok(())
 }

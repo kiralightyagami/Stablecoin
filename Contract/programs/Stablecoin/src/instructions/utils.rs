@@ -39,7 +39,7 @@ fn get_usd_value(
 
     let price_in_usd = price.price as u128 * PRICE_FEED_DECIMALS_ADJUSTMENT;
 
-    let amount_in_usd = (*amount_in_lamports as u128 * price_in_usd) / (LAMPORTS_PER_SOL as u128);
+    let amount_in_usd = (*amount_in_lamports as u128 * price_in_usd) / (1_000_000_000 as u128); // LAMPORTS_PER_SOL
 
     Ok(amount_in_usd as u64)
 }

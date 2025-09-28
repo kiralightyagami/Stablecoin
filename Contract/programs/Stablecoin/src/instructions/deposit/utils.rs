@@ -1,5 +1,5 @@
 use anchor_lang::{prelude::*, system_program::{transfer, Transfer}};
-use anchor_spl::{token::{mint_to}, token_2022::{MintTo, Token2022}, token_interface::{Mint, TokenAccount}};
+use anchor_spl::{token_2022::{mint_to, MintTo, Token2022}, token_interface::{Mint, TokenAccount}};
 use crate::{constants::MINT_SEED};
 
 pub fn mint_tokens<'info>(
