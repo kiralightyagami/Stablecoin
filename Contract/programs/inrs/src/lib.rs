@@ -12,7 +12,7 @@ mod error;
 declare_id!("");
 
 #[program]
-pub mod inrs {
+pub mod Stablecoin {
     use super::*;
 
     pub fn init_config(ctx: Context<InitConfig>) -> Result<()> {
