@@ -31,6 +31,10 @@ pub mod Stablecoin {
     pub fn redeem_collateral_and_burn_tokens(ctx: Context<RedeemCollateralAndBurnTokens>, amount_collateral: u64, amount_to_burn: u64) -> Result<()> {
         instructions::redeem_collateral_and_burn_tokens(ctx, amount_collateral, amount_to_burn)
     }
+
+    pub fn liquidate(ctx: Context<Liquidate>, amount_to_burn: u64) -> Result<()> {
+        instructions::liquidate(ctx, amount_to_burn)
+    }
 }
 
 
