@@ -55,7 +55,7 @@ describe("stablecoin", () => {
 
   it("Redeems collateral and burns tokens", async () => {
     const collateralAmount = 500000000;
-    const amountToBurn = 500000;
+    const amountToBurn = 500000000;
 
     const tx = await program.methods
     .redeemCollateralAndBurnTokens(new anchor.BN(collateralAmount), new anchor.BN(amountToBurn))
@@ -78,9 +78,9 @@ describe("stablecoin", () => {
   })
 
   it("Liquidates collateral", async () => {
-
+    const amountToBurn = 500000000;
     const tx = await program.methods
-    .liquidate(new anchor.BN(1))
+    .liquidate(new anchor.BN(amountToBurn))
     .accounts({
       collateralAccount: collateralAccount,
       priceUpdate: solUsdPriceFeedAccount,
