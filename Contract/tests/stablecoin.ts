@@ -81,7 +81,10 @@ describe("stablecoin", () => {
 
     const tx = await program.methods
     .liquidate(new anchor.BN(1))
-    .accounts({})
+    .accounts({
+      collateralAccount: collateralAccount,
+      priceUpdate: solUsdPriceFeedAccount,
+    })
     .rpc({skipPreflight: true, commitment: "confirmed"});
 
     console.log("Transaction signature:", tx);
