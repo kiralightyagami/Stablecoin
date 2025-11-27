@@ -27,5 +27,6 @@ pub struct Config {
     pub liquidation_bonus: u64,
     pub bump: u8,
     pub bump_mint_account: u8,
+    
 }
     
